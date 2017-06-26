@@ -2,7 +2,7 @@
 const express = require('express');
 
 const path = require('path');
-
+var router = express.Router();
 var passport = require('passport')
   , session = require('express-session')
   , SteamStrategy = require('passport-steam').Strategy;
@@ -47,6 +47,8 @@ passport.use(new SteamStrategy({
 ));
 const app = express();
 
+app.use('/auth/steam', router);
+
 app.use(session({
     secret: 'your secret',
     name: 'name of session id',
@@ -69,7 +71,8 @@ app.use(express.static(path.resolve(__dirname, '..', 'build')));
 app.get('/auth/steam',
   passport.authenticate('steam', { failureRedirect: '/' }),
   function(req, res) {
-    res.redirect('/');
+    console.log("test");
+    // res.redirect('/');
   });
 
 // GET /auth/steam/return
@@ -80,6 +83,7 @@ app.get('/auth/steam',
 app.get('/auth/steam/return',
   passport.authenticate('steam', { failureRedirect: '/' }),
   function(req, res) {
+    console.log(req.user)
     res.redirect('/');
   });
 
@@ -92,7 +96,7 @@ app.get('/api/test', (req, res) => {
 });
 
 // Always return the main index.html, so react-router render the route in the client
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 });
 

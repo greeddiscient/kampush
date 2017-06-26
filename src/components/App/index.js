@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import steamlogin from './steamlogin.png'
+import {Link} from 'react-router';
 import './style.css';
 
 class App extends Component {
+  constructor(props,context) {
+    super(props,context)
+  }
+  contextTypes={
+    router: React.PropTypes.func.isRequired
+  }
+
+  steamLogin(){
+    this.context.router.transitionTo("http://localhost:3000/auth/steam");
+  }
   render() {
     return (
       <div className="App">
@@ -14,8 +25,9 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <p><a href="auth/steam">Sign On with Steam</a></p>
-        <a href="auth/steam"><img src={steamlogin} /></a>
+        <p><a href="http://localhost:3000/auth/steam">Sign On with Steam</a></p>
+        <Link to={`/steamLogin`}><img src={steamlogin} /></Link>
+
       </div>
     );
   }
