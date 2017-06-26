@@ -47,7 +47,6 @@ passport.use(new SteamStrategy({
 ));
 const app = express();
 
-app.use('/auth/steam', router);
 
 app.use(session({
     secret: 'your secret',
