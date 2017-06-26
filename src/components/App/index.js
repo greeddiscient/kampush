@@ -25,8 +25,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <p><a href="http://localhost:3000/auth/steam">Sign On with Steam</a></p>
-        <Link to={`/steamLogin`}><img src={steamlogin} /></Link>
+        <a href="http://localhost:3000/auth/steam"><img src={steamlogin} /></a>
 
       </div>
     );
