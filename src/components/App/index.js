@@ -25,7 +25,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <a href="http://http://secret-meadow-32997.herokuapp.com/auth/steam"><img src={steamlogin} /></a>
+        <a href="http://secret-meadow-32997.herokuapp.com/auth/steam"><img src={steamlogin} /></a>
 
       </div>
     );
