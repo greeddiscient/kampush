@@ -28,9 +28,9 @@ passport.deserializeUser(function(obj, done) {
 //   credentials (in this case, an OpenID identifier and profile), and invoke a
 //   callback with a user object.
 passport.use(new SteamStrategy({
-    returnURL: 'http://localhost:3000/auth/steam/return',
-    realm: 'http://localhost:3000/',
-    apiKey: '314F25E4277B4811B6CA48C91BE1174D'
+    returnURL: 'https://arcane-lake-24832.herokuapp.com/auth/steam/return',
+    realm: 'https://arcane-lake-24832.herokuapp.com/',
+    apiKey: '9DC2D28DE7EFBDC380660F880C198FF1'
   },
   function(identifier, profile, done) {
     // asynchronous verification, for effect...
