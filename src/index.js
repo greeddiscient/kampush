@@ -4,11 +4,11 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import {
   Route,
-  Router,
+  BrowserRouter,
   IndexRoute,
   Link,
-  hashHistory
-} from 'react-router'
+  Switch
+} from 'react-router-dom'
 import App from './components/App'
 import Directory from './components/Directory'
 import NotFoundPage from './components/NotFoundPage'
@@ -17,13 +17,14 @@ import SteamLogin from './components/SteamLogin'
 class Routes extends Component {
   render() {
     return (
-      <Router history= {hashHistory}>
-            <Route path='/' component={App}/>
-            <IndexRoute  component={App}/>
+      <BrowserRouter>
+        <Switch>
+            <Route exact path='/' component={App}/>
             <Route path="/directory" component={Directory}/>
             <Route path="/steamLogin" component={SteamLogin}/>
             <Route path="*" component={NotFoundPage}/>
-      </Router>
+            </Switch>
+      </BrowserRouter>
     );
   }
 }
